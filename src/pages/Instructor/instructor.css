@@ -1,0 +1,82 @@
+.banner_img{
+  background-color: #3a3f47; 
+background-image: url('https://getwallpapers.com/wallpaper/full/c/2/7/328708.jpg');
+background-size: cover; 
+background-position: center center; 
+background-repeat: no-repeat; 
+color: #fff; 
+padding: 20px; 
+text-align: center;
+height: 450px; 
+position: relative;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-direction: column;
+transition: transform 0.3s ease;
+overflow: hidden;
+
+}
+
+
+.our-team{
+  
+  /* display: inline-block; */
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Archivo Black', sans-serif;
+  /* padding: 20px; */
+}
+
+.our-team-header{
+  font-size: 50px;
+  color: white;
+  font-weight: bolder;
+}
+
+.our-team-content{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+/* css for card */
+
+
+
+.course{
+color: black;
+font-weight: bolder;
+font-family: 'Quicksand', sans-serif;
+font-size: 30px;
+padding: 20px;
+margin-left: 135px;
+
+}
+
+/* .inst-grid{
+font-family: 'Quicksand', sans-serif;
+
+} */
+
+/* .card-prop{
+
+margin: 10px;
+background-color: rgba(53, 53, 53, 0.777);
+} */
+
+
+/* #home-video{
+
+width:480px;  
+height: 560px; 
+
+
+} */
+
+
+
+
+
+

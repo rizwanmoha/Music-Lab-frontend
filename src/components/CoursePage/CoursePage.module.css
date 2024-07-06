@@ -1,0 +1,7 @@
+.video-sidebar{
+
+}
+
+:hover .video-sidebar{
+    background-color: rgba(0, 0, 0, .125);
+}

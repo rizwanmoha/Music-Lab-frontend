@@ -1,0 +1,48 @@
+.container-body{
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+.updateProfileHeading {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.664);
+  font: 400 1.3vmax "Roboto";
+  padding: 1.3vmax;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+  width: 50%;
+  margin: auto;
+}
+
+#updateProfileImage{
+  display: flex;
+
+}
+
+#updateProfileImage > img {
+  width: 3vmax;
+  border-radius: 100%;
+  margin: 1vmax;
+}
+#updateProfileImage > input {
+  display: flex;
+  padding: 0%;
+}
+
+#updateProfileImage > input::file-selector-button {
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  height: 5vh;
+  border: none;
+  margin: 0%;
+  font: 400 0.8vmax cursive;
+  transition: all 0.5s;
+  padding: 0 1vmax;
+  color: rgba(0, 0, 0, 0.623);
+  background-color: rgb(255, 255, 255);
+}
+
+#updateProfileImage > input::file-selector-button:hover {
+  background-color: rgb(235, 235, 235);
+}

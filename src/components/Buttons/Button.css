@@ -1,0 +1,105 @@
+.button {
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #ffffffdb;
+    border-radius: 4px;
+    background: #bc76e2af;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-right: 1rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:hover,
+  .button:active {
+    background: #bc76e2af;
+    border-color: #9d9d9d;
+  }
+  
+  .button--inverse {
+    background: transparent;
+    color: #b375c6;
+  }
+  
+  .button--inverse:hover,
+  .button--inverse:active {
+    color: white;
+    background: #ff0055;
+  }
+  
+  .button--danger {
+    background: #830000;
+    border-color: #830000;
+  }
+  
+  .button--danger:hover,
+  .button--danger:active {
+    background: #f34343;
+    border-color: #f34343;
+  }
+  
+  .button:disabled,
+  .button:hover:disabled,
+  .button:active:disabled {
+    background: #ccc;
+    color: #979797;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .button--small {
+    font-size: 0.8rem;
+  }
+  
+  .button--big {
+    font-size: 1.5rem;
+  }
+
+  /* form styling */
+
+  .form-control {
+    margin: 1rem 0;
+  }
+  
+  .form-control label,
+  .form-control input,
+  .form-control textarea {
+    display: block;
+  }
+  
+  .form-control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control input,
+  .form-control textarea {
+    width: 100%;
+    font: inherit;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    padding: 0.15rem 0.25rem;
+  }a
+  
+  .form-control input:focus,
+  .form-control textarea:focus {
+    outline: none;
+    background: #ebebeb;
+    border-color: #510077;
+  }
+  
+  .form-control--invalid label,
+  .form-control--invalid p {
+    color: red;
+  }
+  
+  .form-control--invalid input,
+  .form-control--invalid textarea {
+    border-color: red;
+    background: #ffd1d1;
+  }

@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Space+Mono:700");
+
+
+.checkoutbody {
+  height: 100vh;
+
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  background: 
+  linear-gradient(135deg, black 33%, transparent 15%) -50px 0,
+  linear-gradient(225deg, black 33%, transparent 15%) -50px 0,
+  linear-gradient(315deg, black 35%, transparent 15%),
+  linear-gradient(45deg, black 33%, transparent 25%);	
+  background-size: 2em 2em;
+  background-color: #232323;
+  overflow-y: hidden;
+  color : black;
+
+}
+
+
+.course_title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding-right: 12px;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  
+
+.courseInfo{
+    margin: 1.6rem 0;
+    color: black;
+    text-overflow: ellipsis;
+    /* max-height: 5rem; */
+}
+
+.courseImg {
+    width: 15.5rem;
+    min-width: 200px;
+    margin-right: 1rem;
+  }
+
+  .img1{
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 2rem;
+    border: 1px #9966cc solid;
+    margin-left: 0.3rem;
+  }
+
+  .promoWarning{
+    display: none;
+    color: red;
+    font-style: italic;
+  }
+
+.centerWrapper {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.content {
+  margin: auto;
+  max-width: 680px;
+  border: 2px solid black;
+  background: white;
+}
+
+.topBar,
+.bag,
+.bagTotal{
+  padding: 0.5rem 1rem;
+}
+
+
+
+
+.bagProduct{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.teacher{
+    color: black;
+    font-size: 14px;
+    opacity: 0.7;
+    font-style: italic;
+    line-height: -0.3;
+}
+.logo,
+button {
+  text-transform: uppercase;
+}
+
+
+.bb{
+
+}
+
+.bb:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.topBar {
+  background: #d5d5d5;
+}
+
+.btnRemove {
+  display: block;
+}
+
+
+
+.productCode{
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+    padding-right: 1rem;
+    color: 'black';
+   
+  }
+
+
+
+
+.description {
+  /* padding-right: 1rem; */
+  width: 60%;
+  color : black;
+}
+
+
+.apply{
+    transform:  1s;
+    cursor: pointer;
+    width: 100px;
+    background: none;
+    border: 2px solid #9966cc;
+    border-radius: 4px;
+    color: #9966cc;
+    height: 40px;
+    font-family: "Lato", sans-serif;  
+
+}
+
+.apply:hover{
+    background-color: #9966cc;
+    color: white;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.promoCode {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+input[type=checkbox]{
+  margin-bottom: 0.5rem;
+}
+
+.total {
+  font-size: larger;
+  margin-bottom: 1.2rem;
+  margin-top: .75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* input[type=text] {
+  width: calc(100% - 100px - 1rem);
+  padding: 0.5rem;
+  font-size: 1rem;
+} */
+
+.checkbtn {
+  margin-top: 1rem;
+  width: 100%;
+  height: 40px;
+  background: #9966cc;
+  box-shadow: 0 3px 6px 2px gainsboro;
+  font-size: 1rem;
+  color: white;
+  margin-top: 2rem;
+  transition: ease-in-out;
+}
+
+.checkbtn:hover{
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.25);
+    scale: 1.01;
+}
+
+.popContainer{
+  
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.popover1{
+  padding: .9rem 0;
+  width: 15%;
+  height: 3rem;
+  background: #9966cc;
+  font-size: 1rem;
+  color: white;
+  margin: 30px auto;
+  border-radius: 10px;
+  font-family: "Lato", sans-serif;
+  display: block;
+  position: absolute;
+  top: 500px;
+  transition: 0.3s ease-out;
+}
+
+.hlp{
+    font-size: 0.78rem;
+    text-decoration: none;
+
+}
+
+.hlp:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
