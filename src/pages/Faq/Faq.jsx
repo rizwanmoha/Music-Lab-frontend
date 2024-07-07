@@ -1,11 +1,11 @@
-// import React from 'react';
+
 import './Faq.css';
 
 
 const FAQComponent = () => {
     return (
         <>
-        {/* <Header /> */}
+        
         <div className="faq">
             <h1>Frequently Asked Questions</h1>
         <br />
@@ -30,7 +30,7 @@ const FAQComponent = () => {
                 <p>Once signed into your account, you can cancel your recurring subscription by clicking <big>My Account</big> from the top navigation menu. Select <big>Billing</big> and locate your subscription plan at the bottom of the page.  Click <big>Change Plan</big> and <big>Cancel Membership</big>. Your membership will be cancelled and your access will be removed at the end of your current payment period.</p>
             </p>
         </div>
-        {/* <Footer /> */}
+       
         </>
     );
 };

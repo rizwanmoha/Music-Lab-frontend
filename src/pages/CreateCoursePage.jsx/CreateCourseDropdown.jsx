@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { AddCircleRounded } from "@mui/icons-material";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button,Container, TextField } from "@mui/material";
 import axios from "axios";
@@ -50,6 +49,7 @@ function CreateCourseDropdown({id, currentSection, setCurrentSection, title, num
             const req = await axios.post(`${backendUrl}/api/course/editsection`, {sectionId: id, newName: e.target.value}, {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': user?.token
                 }
               })
               
@@ -83,6 +83,7 @@ function CreateCourseDropdown({id, currentSection, setCurrentSection, title, num
             const req = await axios.post(`${backendUrl}/api/course/deletesection`, {sectionId: id}, {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': user?.token
                 }
               })
               
@@ -128,7 +129,12 @@ function CreateCourseDropdown({id, currentSection, setCurrentSection, title, num
         }
         try {
           setUploading(true);
-          let response = await axios.get(`${backendUrl}/api/course/get-signature`);
+          let response = await axios.get(`${backendUrl}/api/course/get-signature`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': user?.token
+            }
+          });
 
           const {signature, timestamp} =  response.data;
 

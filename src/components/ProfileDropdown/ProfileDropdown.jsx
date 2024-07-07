@@ -29,7 +29,7 @@ const Dropdown = () => {
   }
   return (
     <div className="relative inline-block z-50">
-      {/* Dropdown toggle button */}
+      
       <button
         onClick={toggleDropdown}
         className="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none"
@@ -51,7 +51,6 @@ const Dropdown = () => {
 
 
 
-      {/* Dropdown menu */}
       {isOpen && (
         <div
           onClick={closeDropdown}
@@ -112,8 +111,7 @@ const Dropdown = () => {
     </span>
 </div>
       
-          {/* Dropdown content */}
-          {/* ... (rest of your dropdown content) */}
+        
         </div>
       )}
     </div>

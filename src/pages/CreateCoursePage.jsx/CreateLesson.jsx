@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { AccordionDetails, Checkbox, TextField } from "@mui/material";
 import { EditIcon, Trash2, XCircle } from "lucide-react";
 import { Fragment, useState } from "react";
@@ -6,22 +5,23 @@ import DeleteWarning from "./DeleteWarning";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { backendUrl } from "../../url";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 function CreateLesson({ index, contentChangeHandler, lesson, currentSection, setContent }) {
-    // ${lesson.id == params.section ? " bg-slate-200": ""} 
+    
     const [warning, setWarning] = useState(false)
     const [edit, setEdit] = useState(false);
     const [editedTitle, setEditedTitle] = useState(lesson.name);
-
+    const user = useSelector(state=> state.auth)
     async function deleteVideoHandler() {
         setWarning(false)
         try {
             const response = await axios.post(`${backendUrl}/api/course/deletevideo`, { videoId: lesson._id }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': user?.token
                 },
             })
 
@@ -53,6 +53,7 @@ function CreateLesson({ index, contentChangeHandler, lesson, currentSection, set
                 const req = await axios.post(`${backendUrl}/api/course/editVideoTitle`, {lessonId: lesson._id, newName: e.target.value}, {
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': user?.token
                     }
                   })
                   
@@ -102,7 +103,7 @@ function CreateLesson({ index, contentChangeHandler, lesson, currentSection, set
                                    value = {editedTitle}
                                    onChange={(e)=>{setEditedTitle(e.target.value)}}
                                    onKeyDown={(e)=>editVideoTitleHandler(e)}
-                                  //  onChange={}
+                                  
                                    />
                     }</div>
                     <div className="ml-auto flex" >

@@ -44,7 +44,12 @@ function PaymentPage(){
         async function getCourseInfo(){
           try{
             
-            const response = await axios.get(`${backendUrl}/api/course/description/${params.id}`);
+            const response = await axios.get(`${backendUrl}/api/course/description/${params.id}` , {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': user?.token
+              }
+            });
             
             setCourse(response.data.course);
             setLoading(false)
@@ -54,7 +59,7 @@ function PaymentPage(){
         }
 
         getCourseInfo();
-        // setLoading(false)
+       
       },[])
 
   
@@ -67,6 +72,12 @@ function PaymentPage(){
         `${backendUrl}/api/create-order`,
         {
           amount: course?.price*100
+        }
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': user?.token
+          }
         }
       );
       setOrderId(response.data.id);

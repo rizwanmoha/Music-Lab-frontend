@@ -15,7 +15,7 @@ const AdminAcceptance = () =>{
     const OpenSidebar = () => {
       setOpenSidebarToggle(!openSidebarToggle)
     }
-// "overflow-y-auto h-screen w-1000"
+
     return (
         <div className='grid-container'>
         

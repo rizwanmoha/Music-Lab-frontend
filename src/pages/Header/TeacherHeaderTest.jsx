@@ -80,20 +80,13 @@ export default function TeacherHeaderTest() {
             Spotlight
           </Link>
           
-          {/* <Link to="/wishlist" className="text-sm p-2 font-semibold leading-6 text-slate-950">
-            <img src={cartlogo} alt="" />
-          </Link>
-          */}
+         
         </Popover.Group>
         <div className="text-sm p-3 font-semibold leading-6 text-slate-950">
             <ProfileDropdown className='z-10' />
           </div>
         
-        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div> */}
+       
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />

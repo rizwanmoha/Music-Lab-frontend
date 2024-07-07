@@ -21,11 +21,11 @@ overflow: hidden;
 
 .our-team{
   
-  /* display: inline-block; */
+ 
   text-align: center;
   margin-top: 80px;
   font-family: 'Archivo Black', sans-serif;
-  /* padding: 20px; */
+  
 }
 
 .our-team-header{
@@ -41,7 +41,7 @@ overflow: hidden;
 }
 
 
-/* css for card */
+
 
 
 
@@ -55,25 +55,10 @@ margin-left: 135px;
 
 }
 
-/* .inst-grid{
-font-family: 'Quicksand', sans-serif;
-
-} */
-
-/* .card-prop{
-
-margin: 10px;
-background-color: rgba(53, 53, 53, 0.777);
-} */
 
 
-/* #home-video{
-
-width:480px;  
-height: 560px; 
 
 
-} */
 
 
 

@@ -56,7 +56,7 @@ function CourseLayout(){
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem('token')}`
+                  'Authorization': user?.token
               }
           })
           const data = await response.json();

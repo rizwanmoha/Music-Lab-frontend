@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { backendUrl } from '../url';
+import { useDispatch, useSelector } from "react-redux";
 
 const AcceptRequest = () => {
   const [requestData, setRequestData] = useState([]);
-
+  const user = useSelector(state=> state.auth)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/v1/teacher/lsitofteachersrequest`);
+        const response = await axios.get(`${backendUrl}/api/v1/teacher/lsitofteachersrequest`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': user?.token
+          }
+        });
         setRequestData(response.data.teachers);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -20,10 +26,15 @@ const AcceptRequest = () => {
 
   const handleAccept = async (id) => {
     try {
-      // Make API call to accept the request
-      await axios.put(`${backendUrl}/api/v1/teacher/acceptrequest/${id}`);
+   
+      await axios.put(`${backendUrl}/api/v1/teacher/acceptrequest/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': user?.token
+        }
+      });
       
-      // Update the request data after a successful acceptance
+      
       const updatedData = requestData.filter(request => request._id !== id);
 
       setRequestData(updatedData);
@@ -36,10 +47,15 @@ const AcceptRequest = () => {
 
   const handleIgnore = async (id) => {
     try {
-      // Make API call to delete/ignore the request
-      await axios.delete(`${backendUrl}/api/v1/teacher/ignorerequest/${id}`);
+     
+      await axios.delete(`${backendUrl}/api/v1/teacher/ignorerequest/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': user?.token
+        }
+      });
       
-      // Update the request data after a successful deletion/ignoring
+     
       const updatedData = requestData.filter(request => request._id !== id);
       setRequestData(updatedData);
 
@@ -49,7 +65,7 @@ const AcceptRequest = () => {
     }
   };
 
-  // mb-4   flex flex-col items-center
+  
 
 
   return (

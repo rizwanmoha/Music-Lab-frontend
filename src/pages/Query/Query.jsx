@@ -9,7 +9,7 @@ function Query() {
     const fetchData = async () => {
       try {
         
-        const response = await axios.get("your-api-endpoint");
+        const response = await axios.get("");
         
         
         setContacts(response.data.array);

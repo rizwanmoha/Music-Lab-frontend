@@ -65,7 +65,7 @@ const ImageUpload = ({file, setFile, id}) => {
         </Button>
         </div>
       </div>
-      {/* {!isValid && <p>Please pick an image</p>} */}
+      
       </Fragment>
       </div>
     

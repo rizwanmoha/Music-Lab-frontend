@@ -13,18 +13,24 @@ import BasicBars from "./Chart";
 import BasicLineChart from "./LineCharts";
 
 import { backendUrl } from "../url";
-
+import { useDispatch, useSelector } from "react-redux";
 const Purchases = () => {
   const theme = useTheme();
   const [teachers, setTeachers] = useState([]);
   const [purchaseData, setPurchaseData] = useState([]);
   const [timeStamp , settimeStamp] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const user = useSelector(state=> state.auth)
   useEffect(() => {
     const fetchPurchaseData = async () => {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/v1/admin/getpurchases`
+          `${backendUrl}/api/v1/admin/getpurchases`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': user?.token
+            }
+          }
         );
 
         setPurchaseData(response.data.purchases);
@@ -37,25 +43,11 @@ const Purchases = () => {
 
     fetchPurchaseData();
   }, [searchQuery]);
-  // {purchase.courseId.title}
 
-  // {purchase.userId ? (
-  //   purchase.userId.firstName && purchase.userId.lastName ? (
-  //     <span>
-  //       {purchase.userId.firstName} {purchase.userId.lastName}
-  //     </span>
-  //   ) : (
-  //     <span>Rizwan</span>
-  //   )
-  // ) : (
-  //   <span>Rizwan</span>
-  // )}
 
   return (
     <>
-      {/* <div className="flex justify-center">
-        <h1 className="font-bold text-4xl text-white">Sales </h1>
-      </div> */}
+      
       <div className="flex justify-center bg-white">
         <h1 className="font-bold text-4xl text-red-400">Sales</h1>
       </div>
@@ -175,7 +167,7 @@ const Purchases = () => {
                 </TableCell>
 
                 <TableCell sx={{ color: "white" }}>
-                  {/* {purchase.updatedAt.substring(0, 10)} */}
+                  
                   {timeStamp[index] && timeStamp[index].updatedAt
           ? timeStamp[index].updatedAt.substring(0, 10)
           : ""}

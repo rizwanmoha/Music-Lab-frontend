@@ -6,9 +6,7 @@ import
  import { Link } from "react-router-dom";
 
 function Sidebar({openSidebarToggle, OpenSidebar}) {
-    // to='/dashboard/admin/query'
-
-    //dashboard/admincourses
+   
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
         <div className='sidebar-title'>
@@ -21,7 +19,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
                 <Link to='/dashboard/adminpurchases' className="flex items-center">
-                    {/* <BsGrid1X2Fill className='icon'/> Dashboard */}
+                    
                     <BsGrid1X2Fill className='icon'  />
                     <span className="ml-2">Purchases</span>
                 </Link>
@@ -62,12 +60,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <span className="ml-2">Queries</span>
                 </Link>
             </li>
-            {/* <li className='sidebar-list-item'>
-                <a href="" className="flex items-center">
-                    <BsFillGearFill className='icon'/> 
-                    <span className="ml-2"> Settings</span>
-                </a>
-            </li> */}
+           
         </ul>
     </aside>
   )

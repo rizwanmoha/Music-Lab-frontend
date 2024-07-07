@@ -63,7 +63,7 @@
 
 
 .video_box{
-    /* background-color: black;; */
+   
     margin-top: 40px;
 }
 .description{
@@ -78,13 +78,13 @@
 
 .title-text{
     
-    /* display: inline-block; */
+    
     text-align: center;
     margin-top: 24px;
     margin-bottom: 24px;
     margin-right: 2rem;
     font-family: 'Archivo Black', sans-serif;
-    /* padding: 20px; */
+  
 }
 
 

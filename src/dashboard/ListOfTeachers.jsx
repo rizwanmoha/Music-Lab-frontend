@@ -12,17 +12,23 @@ import { useTheme } from "@mui/material/styles";
 import { useNavigate } from 'react-router-dom';
 import { backendUrl } from "../url";
 import Checkbox from '@mui/material/Checkbox';
-
+import { useDispatch, useSelector } from "react-redux";
 const ListOfTeachers = () => {
   const theme = useTheme();
   const [teachers, setTeachers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const user = useSelector(state=> state.auth)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/v1/admin/teacheruniversalSearch?query=${searchQuery}`
+          `${backendUrl}/api/v1/admin/teacheruniversalSearch?query=${searchQuery}`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': user?.token
+            }
+          }
         );
         setTeachers(response.data.teachers);
         console.log(teachers);

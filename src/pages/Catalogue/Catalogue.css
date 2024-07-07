@@ -6,7 +6,7 @@ head-slides{
 }
 
 .video_box{
-    /* background-color: black; */
+   
 }
 .video-part{
     background-color: #4076c1a8;
@@ -20,7 +20,7 @@ head-slides{
 
      width:480px;  
      height: 560px; 
-     /* padding: 20px;  */
+   
  
 }
 
@@ -31,10 +31,10 @@ head-slides{
 .our-team{
     
     display: inline-block;
-    /* text-align: center; */
+   
     margin-top: 120px;
     font-family: 'Archivo Black', sans-serif;
-    /* padding: 20px; */
+   
 }
 
 #first-line{
@@ -73,12 +73,12 @@ head-slides{
 .courses{
     background-color: rgb(26, 28, 29);
         padding-bottom: 10px;
-    /* margin-left: 20px; */
+   
 }
 
 .beginner{
     background-color: rgb(26, 28, 29);
-    /* margin-bottom: 20px; */
+    
 }
 
 .grid-of-courses{
@@ -126,7 +126,7 @@ head-slides{
 }
 
 h1{
-    /* font-family: 'Quicksand', sans-serif; */
+   
     padding: 15px;
     padding-top: 25px;
 }
@@ -180,7 +180,7 @@ hr{
 
 
 .home_section .products_section{
-    /* padding: 10px 20px; */
+   
     width: 98%;
     margin:10px auto;
     background-color: #fff;

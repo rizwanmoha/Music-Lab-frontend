@@ -55,14 +55,14 @@ body{
     }
 }
 
-/* for chrome */
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* for firefox */
+
 input[type="number"] {
     -moz-appearance: textfield;
 }

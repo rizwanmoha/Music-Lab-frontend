@@ -56,7 +56,7 @@ const Catalogue = (props) => {
   const customStyle3 = {
     height: "197px",
     width: "347px",
-    // Add other CSS properties as needed
+   
   };
 
   const customStyle4 = {
@@ -110,7 +110,7 @@ const Catalogue = (props) => {
       </div>
       <CataMonial />
 
-      {/* <hr/> */}
+    
       <nav
         className="navbar bg-fuchsia-200"
         id="navbar-id"
@@ -121,7 +121,7 @@ const Catalogue = (props) => {
           <div className="p-3">
             <form className="max-w-lg mx-auto">
               <div className="flex">
-                {/* <label for="search-dropdown" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label> */}
+                
                 <div>
                   <button
                     onClick={openSearchHandler}

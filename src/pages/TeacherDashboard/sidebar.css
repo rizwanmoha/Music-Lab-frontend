@@ -10,7 +10,7 @@
     padding: 0;
   }
   .sidebar > a > img {
-    /* width: 100%; */
+   
     max-width: none;
     width: auto;
     height: 40px;
@@ -30,7 +30,7 @@
   }
   .sidebar a:hover {
     color: tomato;
-    /* transform: scale(1.1); */
+    
   }
   
   .sidebar a > P {

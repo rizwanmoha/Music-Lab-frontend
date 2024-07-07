@@ -21,7 +21,7 @@ const TeacherEditProfile = () => {
     const [education,setEducation] = useState("");
     const [experience,setExperience] = useState("");
     const [achievement,setAchievement] = useState("");
-    // const [file,setFile] = useState("");
+    
     const [avatar, setAvatar] = useState();
     const [avatarPreview, setAvatarPreview] = useState(profileImage);
 
@@ -44,7 +44,7 @@ const TeacherEditProfile = () => {
 
     const addTeacherData = async() =>{
       const formData = new FormData();
-      // formData.append("photo",file);
+   
       formData.set("avatar", avatar);
       formData.set("firstName",firstName);
       formData.set("lastName",lastName);
@@ -115,7 +115,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setFirstName(e.target.value)}
                       className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       placeholder="John"
-                      // onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -135,7 +134,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setLastName(e.target.value)}
                       className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       placeholder="Smith"
-                      // onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -155,7 +153,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setUserName(e.target.value)}
                       className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       placeholder="username9430"
-                      // onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -175,7 +172,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setEmail(e.target.value)}
                       className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       placeholder="johnsmith@example.com"
-                      // onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -195,7 +191,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setLocation(e.target.value)}
                       className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       placeholder="Delhi"
-                      // onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -214,7 +209,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setDescription(e.target.value)}
                       className="w-full pl-3 pr-3 pt-2 pb-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 resize-none"
                       placeholder="Write Your Description..."
-                      // onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
@@ -233,7 +227,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setEducation(e.target.value)}
                       className="w-full pl-3 pr-3 pt-2 pb-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 resize-none"
                       placeholder="Write your Education..."
-                      // onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
@@ -252,7 +245,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setExperience(e.target.value)}
                       className="w-full pl-3 pr-3 pt-2 pb-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 resize-none"
                       placeholder="Write Your Experience..."
-                      // onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
@@ -271,7 +263,6 @@ const TeacherEditProfile = () => {
                       onChange={(e)=>setAchievement(e.target.value)}
                       className="w-full pl-3 pr-3 pt-2 pb-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 resize-none"
                       placeholder="Write Your Achievements..."
-                      // onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
@@ -283,8 +274,7 @@ const TeacherEditProfile = () => {
                   type="file"
                   name="avatar"
                   accept="image/*"
-                  // onChange={(e)=>setFile(e.target.files[0])}
-                  // onChange={updateProfileDataChange}
+                 
                   onChange={updateProfileDataChange}
                 />
               </div>
@@ -295,7 +285,7 @@ const TeacherEditProfile = () => {
                     className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-1 py-1 font-semibold"
                     type="submit"
                     onClick={addTeacherData}
-                    // onClick={handleRegister}
+                    
                   >
                     Update Profile
                   </button>

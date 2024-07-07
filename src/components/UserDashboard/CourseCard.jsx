@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { Celebration } from "@mui/icons-material";
 import { LinearProgress } from "@mui/material";
 import { useEffect } from "react";

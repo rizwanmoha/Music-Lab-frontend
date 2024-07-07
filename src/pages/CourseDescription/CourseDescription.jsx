@@ -112,7 +112,7 @@ const CourseDetails = () => {
           }
         } catch(e){
           console.log(e);
-          // toast.error()
+          
         }
       }
 
@@ -188,7 +188,13 @@ const CourseDetails = () => {
           courseId: params.courseId,
           comment: comment,
           userId: user?.id
-        })
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': user?.token
+          }
+        }
+      )
 
         if(request.status === 200){
           getCourseComments();
@@ -570,7 +576,7 @@ const CourseDetails = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Other course boxes */}
+
                 </div>
 
                 <div className={`${styles.courseBox} mt-4`}>
@@ -633,12 +639,7 @@ const CourseDetails = () => {
                               Become an advanced Guitar Player.
                             </li>
 
-                            {/* <li>
-                              <span className={`${styles.greentick} mt-0`}>
-                                <img src={checkmark} alt="" />
-                              </span>
-                              A Burning Passion to Learn.
-                            </li> */}
+                           
                           </ul>
                         </div>
                       </div>

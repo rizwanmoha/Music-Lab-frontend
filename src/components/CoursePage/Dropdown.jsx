@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router"

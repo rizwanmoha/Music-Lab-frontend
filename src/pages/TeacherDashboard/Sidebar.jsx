@@ -38,40 +38,7 @@ const Sidebar = ({teacher}) => {
           Dashboard
         </p>
       </Link>
-
-
-
-      {/* <Link>
-        <TreeView
-          defaultCollapseIcon={<ExpandMoreIcon style={{ color: "gray" }} />}
-          defaultExpandIcon={<ImportExportIcon style={{ color: "gray" }} />}
-          style={{ color: "gray" }}
-        >
-          <TreeItem nodeId="1" label="Courses" style={{ color: "gray" }}>
-            <Link to={`/dashboardteacherproductlist/${teacher.id}`}>
-              <TreeItem
-                nodeId="2"
-                label="All"
-                style={{ color: "gray", "&:hover": { color: "gray" } }}
-                icon={<PostAddIcon style={{ color: "gray" }} />}
-              />
-            </Link>
-
-            <Link to="#">
-              <TreeItem
-                nodeId="3"
-                label="Create"
-                style={{ color: "gray" }}
-                icon={<AddIcon style={{ color: "gray" }} />}
-              />
-            </Link>
-          </TreeItem>
-        </TreeView>
-      </Link> */}
-
-
-      
-      <Link to={`/dashboardteacheruploadcourses/${teacher.id}`}>
+ <Link to={`/dashboardteacheruploadcourses/${teacher.id}`}>
         <p style={{ color: "gray" }}>
           <DriveFolderUploadIcon style={{ color: "gray" }} />
           <span>UploadCourses</span>

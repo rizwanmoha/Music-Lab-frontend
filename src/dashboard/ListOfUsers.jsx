@@ -12,6 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from 'react-router-dom';
 import { backendUrl } from "../url";
+import { useDispatch, useSelector } from "react-redux";
 
 const ListOfTeachers = () => {
   const theme = useTheme();
@@ -19,11 +20,17 @@ const ListOfTeachers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   console.log(backendUrl);
+  const user = useSelector(state=> state.auth)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/v1/admin/universalSearch?query=${searchQuery}`
+          `${backendUrl}/api/v1/admin/universalSearch?query=${searchQuery}`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': user?.token
+            }
+          }
         );
         setUsers(response.data.users);
         console.log(users);
@@ -43,7 +50,7 @@ const ListOfTeachers = () => {
   };
 
 
-  // navigate(`/studenteditprofile/${userId}`);
+ 
 
   return (
     <>
@@ -78,9 +85,9 @@ const ListOfTeachers = () => {
           <TableHead>
             <TableRow>
 
-            {/* backgroundColor: "#f2f2f2" */}
+           
             <TableCell sx={{ fontSize: "20px", fontWeight: "bolder", color: "#3b82f6", borderLeft: "1px solid white", borderTop: "1px solid white",backgroundColor: "#f2f2f2"  }}>
-          {/* <Checkbox color="primary" /> */}
+          
         </TableCell>
               <TableCell
                 sx={{ fontSize: "20px", fontWeight: "bolder", color: "#3b82f6",  borderLeft: "1px solid white" ,  borderTop: "1px solid white", backgroundColor: "#f2f2f2" }}
@@ -112,7 +119,7 @@ const ListOfTeachers = () => {
           <TableBody>
             {users.map((user) => (
               <TableRow key={user._id}>
-                {/* <TableCell sx={{ color: 'white' }}>{user.firstName} &nbsp; {user.lastName}</TableCell> */}
+                
                 <TableCell sx={{ borderLeft: "1px solid white" }}>
             <Checkbox color="primary" />
           </TableCell>

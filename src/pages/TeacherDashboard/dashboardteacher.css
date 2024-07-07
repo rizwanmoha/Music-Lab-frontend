@@ -5,12 +5,11 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    /* background-image: url(preheaderbg.jpg); */
+   
 
     background-color: #330033;
     background-image: url('preheaderbg.jpg');
-    /* width:"50px"; */
-    /* height:"100%"; */
+    
 
 
 }
@@ -58,7 +57,7 @@
     margin: 0px;
     padding: 0px;
 
-    /* background-color: #000000; */
+
     background-color: #ffffff;
     background-attachment: fixed;
     background-size: cover;
@@ -68,8 +67,7 @@
 }
 
 .circle_img{
-    /* background-color: #1a232c; */
-    /* background-image: url('profile_backg_image.jpg'); */
+    
     height: 200px;
     margin: 0 0 0 20px;
 }
@@ -90,7 +88,7 @@
     color: white;
     height: 50px;
     width: 150px;
-   /* color: white; */
+   
     border: 1px solid black;
     border-radius: 25px;
     background-color: blue;
@@ -99,7 +97,7 @@
     font-size: 15px;
      margin: 0px 0px 0px 10px;
     border: none;
-    /* text-align: center; */
+   
     transition: 0.4s all;
     text-decoration: none;
     overflow: hidden;
@@ -199,40 +197,14 @@
 
  }
 
- /* .dashboarddiv {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-left: 1px solid rgba(0, 0, 0, 0.158);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  } */
 
 
-  /* .dashboarddiv {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: flex-start;
-    background-color: #ffffff; 
-  } */
-
-  /* .dashboarddiv {
-    width: 100vw;
-    max-width: 100%;
-    
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    
-    background-color: #fff;
-    
-  } */
 
   .dashboarddiv {
-    display: grid; /* Use grid layout */
-    grid-template-columns: 1fr 5fr; /* Define two columns with a ratio of 1:5 */
-    column-gap: 10px; /* Add gap between columns */
-    align-items: flex-start; /* Align items at the start of the cross axis */
+    display: grid;
+    grid-template-columns: 1fr 5fr; 
+    column-gap: 10px; 
+    align-items: flex-start; 
     background-color: #fff;
   }
 

@@ -27,6 +27,7 @@ const StudentList = () => {
       {
         headers: {
           "Content-Type": "application/json",
+          'Authorization': teacher?.token
         },
       });
 
@@ -52,6 +53,7 @@ const StudentList = () => {
       {
         headers: {
           "Content-Type": "application/json",
+          'Authorization' : teacher?.token
         },
       });
         if(res.status === 200){

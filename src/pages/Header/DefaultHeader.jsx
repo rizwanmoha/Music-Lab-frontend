@@ -79,11 +79,7 @@ export default function Example() {
             Sign Up
           </Link>
         </Popover.Group>
-        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div> */}
+        
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />

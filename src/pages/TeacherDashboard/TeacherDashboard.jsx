@@ -20,7 +20,7 @@ const TeacherDashboard = () => {
   const [totalMoney, setTotalMoney] = useState({ totalSellingPrice: 0 });
 
 
-  // For Number of Students
+
   const NumberOfStudents = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/v1/teacher/teacher/numberofstudent/${teacherId}`,
@@ -46,7 +46,7 @@ const TeacherDashboard = () => {
 
 
 
-  // For Total Number of Courses and Total Number of Course with Category Wise
+  
   const NoOfCourseAndCourseWithCategory = async() => {
     try {
       const response = await axios.get(`${backendUrl}/api/v1/teacher/teacher/noofcourseandcoursewithcategory/${teacherId}`,
@@ -72,7 +72,7 @@ const TeacherDashboard = () => {
   }
 
 
-  // Total Earned Money
+  
   const EarnedMoney = async() => {
     try{
       const response = await axios.get(`${backendUrl}/api/v1/teacher/teacher/earnmoney/${teacherId}`,

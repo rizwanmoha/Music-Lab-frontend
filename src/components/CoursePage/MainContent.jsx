@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
+
 import { Typography } from "@mui/material";
 import { Fragment, useRef, useState } from "react";
 import { useParams } from "react-router";
-// import trialvideo from "../"
-// import video from './update_profile.js - Online Bank System - Visual Studio Code 2023-03-23 00-06-51'
+
 
 
 

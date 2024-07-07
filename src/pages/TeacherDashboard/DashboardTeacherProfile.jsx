@@ -26,6 +26,7 @@ const DashboardTeacherProfile = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            'Authorization': teacher?.token
           },
         }
 
@@ -106,17 +107,7 @@ const DashboardTeacherProfile = () => {
               <br />
               <br />
               <br />
-              {/* <div className="btn-main mx-20">
-                <NavLink to={`/teachereditprofile/${teacherData._id}`}>
-                  <button className="btn-button">Edit Profile</button>
-                </NavLink>
-                <br />
-                <NavLink to="#">
-                  <button className="btn-button right_to_left_offset">
-                    Upload Courses
-                  </button>
-                </NavLink>
-              </div> */}
+             
             </div>
 
             <div className="col-md-5 ml-3 offset-1">
@@ -154,8 +145,7 @@ const DashboardTeacherProfile = () => {
                   color: "black",
                   display: "flex",
                   alignItems: "flex-end",
-                  // width: "40px",
-                  // wordWrap: "break-word",
+                
                 }}
               >
                 <div>
@@ -198,8 +188,7 @@ const DashboardTeacherProfile = () => {
                   color: "black",
                   display: "flex",
                   alignItems: "flex-end",
-                  // width: "200px",
-                  // wordWrap: "break-word",
+
                 }}
               >
                 <div>
@@ -221,8 +210,7 @@ const DashboardTeacherProfile = () => {
                   color: "black",
                   display: "flex",
                   alignItems: "flex-end",
-                  // width: "200px",
-                  // wordWrap: "break-word",
+                 
                 }}
               >
                 <div>

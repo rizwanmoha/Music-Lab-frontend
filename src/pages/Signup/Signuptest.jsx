@@ -8,9 +8,9 @@ import { toast } from 'react-toastify';
 import logo from '../../images/logo-new.png';
 const RegistrationForm = () => {
 
-const navigate = useNavigate(); // Initialize useNavigate
+const navigate = useNavigate(); 
 
-// toast.info('Please Login to add to wishlist');
+
 const [formData, setFormData] = useState({
   firstName: '',
   lastName: '',
@@ -59,7 +59,7 @@ const handleRegister = async () => {
     const check = "User already exist please login"
     console.log(typeof response.data.messages);
     console.log(typeof check);
-    // const check = false;
+    
     if (response.data.message === "User Registered Successfully") {
       toast.info('User registered successfully');
       navigate('/login'); 

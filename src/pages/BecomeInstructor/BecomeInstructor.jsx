@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-// import './Signup.css';
 import 'react-toastify/dist/ReactToastify.css';
 import signup from '../../images/signup1.jpg';
 import { Input } from '@mui/base';
@@ -12,8 +10,7 @@ import { backendUrl } from '../../url';
 
 const BecomeInstructor = () => {
 
-const navigate = useNavigate(); // Initialize useNavigate
-
+const navigate = useNavigate();
 const [formData, setFormData] = useState({
   firstName: '',
   lastName: '',
@@ -50,7 +47,7 @@ const [showAchievement, setShowAchievement] = useState(false);
 const handleResumeChange = (e) => {
   const file = e.target.files[0];
 
-  // Update only the 'resume' field in the formData state
+ 
   setFormData((prevData) => ({
     ...prevData,
     resume: file,
@@ -58,8 +55,7 @@ const handleResumeChange = (e) => {
 };
 const handleChange = (e) => {
   const { name, value } = e.target;
-  // console.log(name);
-  // console.log(value);
+  
   setFormData((prevData) => ({
     ...prevData,
     [name]: value,
@@ -75,7 +71,7 @@ const handleRegister = async () => {
     formData.password === '' ||
     formData.password.length < 6
   ) {
-    // Your Request is pending to admin
+    
     toast.info('Please fill all the details');
     return;
   }
@@ -88,7 +84,7 @@ const handleRegister = async () => {
     
     if (response.data.success === true) {
       toast.info('Your Request is pending to admin');
-      navigate('/'); // Use navigate to redirect to the login page
+      navigate('/'); 
     }
     else if(response.data.success === false){
       toast.info('Teacher already exist with this email');

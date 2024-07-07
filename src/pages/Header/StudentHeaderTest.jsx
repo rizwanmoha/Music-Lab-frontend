@@ -84,11 +84,7 @@ export default function StudentHeaderTest() {
             <ProfileDropdown  className='z-10'/>
           </div>
         
-        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div> */}
+        
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
@@ -193,19 +189,8 @@ export default function StudentHeaderTest() {
                 </Link>
               </div>
               <div className="py-6">
-                {/* <Link
-                  to="/login"
-                  className="-mx-3  block rounded-lg px-3 py-2.5 my-2 text-base font-semibold leading-7 bg-black text-slate-50 hover:text-gray-200"
-                >
-                  Log in
-                </Link>
-                <Link
-                  to="/register"
-                  className="-mx-3  block rounded-lg px-3 py-2.5 my-2 text-base font-semibold leading-7 bg-slate-50 hover:text-gray-200 border-solid border-2 border-slate-950 text-slate-950
-                  "
-                >
-                  Sign Up
-                </Link> */}
+              
+
               </div>
             </div>
           </div>

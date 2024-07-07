@@ -67,24 +67,17 @@
 .detailsBlock-3 > h1 {
     color: rgba(17, 17, 17, 0.795);
     font: 400 1.8vmax "Franklin Gothic Medium";
-    /* margin: 1vmax 0; */
+    
 }
 
-/* .title-seeall{
-    background-color: rgb(26, 28, 29);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-} */
+
 
 
 .detailsBlock-2 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* border-top: 1px solid rgba(0, 0, 0, 0.205);
-       border-bottom: 1px solid rgba(0, 0, 0, 0.205); */
+    
     width: 70%;
     padding: 1vmax 0;
 }

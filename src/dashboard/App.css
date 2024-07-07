@@ -37,7 +37,7 @@ body {
     height: 100vh;
   }
   
-  /* Header  */
+
   .header {
     grid-area: header;
     height: 60px;
@@ -45,15 +45,15 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 30px 0 30px;
-    /* box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35); */
+    
   }
   
   .menu-icon {
     display: none;
   }
-  /* End Header  */
+
   
-  /* Sidebar  */
+  
   #sidebar {
     grid-area: sidebar;
     height: 100%;
@@ -104,18 +104,14 @@ body {
   .sidebar-responsive {
     display: inline !important;
     position: absolute;
-    /*
-      we want the z-index of the sidebar higher so that
-      the charts are not showing over the sidebar 
-      on small screens
-    */
+    
     z-index: 12 !important;
   }
   
-  /* End Sidebar  */
+
   
   
-  /* Main  */  
+ 
   .main-container {
     grid-area: main;
     overflow-y: auto;
@@ -144,7 +140,7 @@ body {
   }
   
   .card:first-child {
-    /* background-color: #2962ff; */
+   
   }
   
   .card:nth-child(2) {
@@ -177,10 +173,9 @@ body {
     height: 300px;
   }
   
-  /* End Main  */
+
   
   
-  /* Medium <= 992px */
     
   @media screen and (max-width: 992px) {
     .grid-container {
@@ -203,7 +198,7 @@ body {
       display: inline;
     }
   }
-  /* Small <= 768px */
+
     
   @media screen and (max-width: 768px) {
     .main-cards {
@@ -218,7 +213,7 @@ body {
     }
   }
   
-  /* Extra Small <= 576px */
+ 
   
   @media screen and (max-width: 576px) {
     .hedaer-left {

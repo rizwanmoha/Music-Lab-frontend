@@ -184,7 +184,7 @@ const Quiz = () => {
                 name="quizName"
                 className="w-96 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 bg-white outline-none focus:border-indigo-500"
                 placeholder="Guitar Tone"
-                // onChange={handleChange}
+                
               />
             </div>
           </div>
@@ -203,7 +203,7 @@ const Quiz = () => {
                 name="quizName"
                 className="w-96 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                 placeholder="Guitar Tone"
-                // onChange={handleChange}
+                
               />
             </div>
           </div>
@@ -238,7 +238,7 @@ const Quiz = () => {
                 <button
                   className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
                   type="submit"
-                  // onClick={handleRegister}
+                  
                 >
                   Upload Quiz
                 </button>

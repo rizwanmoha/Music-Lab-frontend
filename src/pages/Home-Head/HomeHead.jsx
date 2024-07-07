@@ -79,7 +79,7 @@ const stats = [
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-6 max-w-2xl lg:mx-0" style={{color:"blue"}}>
             <h1 className="text-3xl font-bold tracking-tight text-purple-400 sm:text-9xl">MusicLab</h1>
-            {/* <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">REVERB</h1> */}
+            
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Begin your Musical Journey with MusicLabs! From guitar basics to Heavy Metal, we have got everything covered for you
             </p>

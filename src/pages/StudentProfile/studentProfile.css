@@ -4,12 +4,11 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    /* background-image: url(preheaderbg.jpg); */
+    
 
     background-color: #330033;
     background-image: url('preheaderbg.jpg');
-    /* width:"50px"; */
-    /* height:"100%"; */
+  
 
 
 }
@@ -66,8 +65,7 @@
 }
 
 .circle_img{
-    /* background-color: #1a232c; */
-    /* background-image: url('profile_backg_image.jpg'); */
+   
     height: 200px;
     margin: 0 0 0 20px;
 }
@@ -88,7 +86,7 @@
     color: black;
     height: 50px;
     width: 150px;
-   /* color: white; */
+   
     border: 1px solid black;
     border-radius: 25px;
     background-color: blue;
@@ -97,7 +95,7 @@
     font-size: 15px;
      margin: 0px 0px 0px 10px;
     border: none;
-    /* text-align: center; */
+    
     transition: 0.4s all;
     text-decoration: none;
     overflow: hidden;

@@ -3,9 +3,10 @@ import "./instructor.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { backendUrl } from "../../url";
-
+import { useDispatch, useSelector } from "react-redux";
 
 const Instructor = () => {
+  const user = useSelector(state=> state.auth)
   const [instructordata, setInstructorData] = useState("");
 
   const Instructor_Data = async () => {
@@ -15,8 +16,9 @@ const Instructor = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            'Authorization': user?.token
           },
-          // withCredentials: true
+          
         }
       );
 
@@ -93,13 +95,11 @@ const Instructor = () => {
                         <h5 className="card-title text-black mt-3  text-xl">
                           {instructor.firstName + " " + instructor.lastName}
                         </h5>
-                        {/* <p className="card-text text-black mt-2 text-base">
-                        {instructor.description}
-                      </p> */}
+                       
                       </div>
                       <hr className="border-t border-black my-1 mt-2"></hr>
                       <ul className="list-group list-group-flush text-black px-auto">
-                        {/* <li className="list-group-item">Blues, Rock</li> */}
+                        
                         <li className="list-group-item mb-2 ">
                           {instructor.username}
                         </li>

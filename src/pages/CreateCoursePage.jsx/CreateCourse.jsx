@@ -21,7 +21,7 @@ function CreateCourseLayout(){
     const [courseInfo, setCourseInfo] = useState({sections:[]})
     
     const [currentVideo, setCurrentVideo] = useState(null);
-    
+    const user = useSelector(state=> state.auth)
     
     useEffect(()=>{
         async function getCourseInfo(id){
@@ -29,7 +29,7 @@ function CreateCourseLayout(){
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': user?.token
                 }
             })
             const data = await response.json();
@@ -59,7 +59,7 @@ function CreateCourseLayout(){
     const response = await axios.post(`${backendUrl}/api/course/addsection`, formData,{
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': user?.token
         },
     })
 
@@ -88,7 +88,7 @@ function CreateCourseLayout(){
             <div className="absolute inset-y-0 right-0 w-[28vw] bg-slate-200 rounded-lg overflow-y-auto">
                 
                { courseInfo?.sections?.map((section, index)=>{
-                {/* console.log(section.videos) */}
+                
                     return(
                         <CreateCourseDropdown key={section._id} id={section._id} currentSection={currentSection} setCurrentSection={setCurrentSection} title={section.name} num={index+1} total={section.videos?.length} content={section?.videos} setContent={setCourseInfo} setCurrentVideo={setCurrentVideo}  />    
                     )
