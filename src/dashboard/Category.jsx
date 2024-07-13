@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { backendUrl } from "../url";
+import { useDispatch, useSelector } from "react-redux";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -9,18 +10,34 @@ const Category = () => {
   const [visible, setVisible] = useState(false);
   const [updatedName, setUpdatedName] = useState("");
   const [selected, setSelected] = useState(null);
+  const user = useSelector(state=> state.auth)
+  const api = axios.create({
+    baseURL: backendUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  api.interceptors.request.use(
+    (config) => {
+      const token = user?.token;
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
   const handleAddCategory = async () => {
+    
+
     try {
-      const response = await axios.post(
-        `${backendUrl}/api/v1/admin/create-category`,
+      const response = await api.post(
+        `/api/v1/admin/create-category`,
         {
           name: categoryName,
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
         }
       );
       console.log(response.data);
@@ -33,15 +50,11 @@ const Category = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `${backendUrl}/api/v1/admin/allcategories`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
-        }
+      const response = await api.get(
+        `/api/v1/admin/allcategories`
       );
       setCategories(response.data.categories);
+      console.log(categories);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -49,13 +62,8 @@ const Category = () => {
 
   const handleDelete = async (categoryId) => {
     try {
-      await axios.delete(
-        `${backendUrl}/api/v1/admin/deletecategories/${categoryId}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
-        }
+      await api.delete(
+        `/api/v1/admin/deletecategories/${categoryId}`
       );
       setCategories(categories.filter((c) => c._id !== categoryId));
       toast.info("Category Deleted");
@@ -66,15 +74,10 @@ const Category = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(
-        `${backendUrl}/api/v1/admin/updatecategory/${selected._id}`,
+      await api.put(
+        `/api/v1/admin/updatecategory/${selected._id}`,
         {
           name: updatedName,
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
         }
       );
       setCategories(

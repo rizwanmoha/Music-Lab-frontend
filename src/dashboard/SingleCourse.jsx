@@ -13,36 +13,40 @@ const SingleCourse = () => {
   const [comments, setComments] = useState([]);
   const user = useSelector(state=> state.auth)
   useEffect(() => {
+    const api = axios.create({
+      baseURL: backendUrl,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    api.interceptors.request.use(
+      (config) => {
+        const token = user?.token;
+        if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/course/singlecourse/:${courseId}`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
-            }
-          }
+        const response = await api.get(
+          `/api/course/singlecourse/:${courseId}`
         );
 
         setCourseData(response.data.course);
         
-        const teacherResponse = await axios.get(
-          `${backendUrl}/api/v1/teacher/getTeacher/${response.data.course.teacher}`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
-            }
-          }
+        const teacherResponse = await api.get(
+          `/api/v1/teacher/getTeacher/${response.data.course.teacher}`
         );
 
         setTeacherData(teacherResponse.data.teacher);
-        const commentsResponse = await axios.get(
-          `${backendUrl}/api/comments/${courseId}`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
-            }
-          }
+        const commentsResponse = await api.get(
+          `/api/comments/${courseId}`
         );
 
         setComments(commentsResponse.data.comments);

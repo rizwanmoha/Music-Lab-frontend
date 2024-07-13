@@ -24,13 +24,27 @@ const Purchases = () => {
   useEffect(() => {
     const fetchPurchaseData = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/v1/admin/getpurchases`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
+        const api = axios.create({
+          baseURL: backendUrl,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        api.interceptors.request.use(
+          (config) => {
+            const token = user?.token;
+            if (token) {
+              config.headers['Authorization'] = `Bearer ${token}`;
             }
+            return config;
+          },
+          (error) => {
+            return Promise.reject(error);
           }
+        );
+        const response = await api.get(
+          `/api/v1/admin/getpurchases`
         );
 
         setPurchaseData(response.data.purchases);

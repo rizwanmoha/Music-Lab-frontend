@@ -12,18 +12,32 @@ const Query = () =>{
     const [showReply, setShowReply] = useState(false);
      const [replyMessage, setReplyMessage] = useState('');
      const user = useSelector(state=> state.auth)
+     const api = axios.create({
+      baseURL: backendUrl,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+     api.interceptors.request.use(
+      (config) => {
+        const token = user?.token;
+        if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
   useEffect(() => {
     
-    const apiUrl = `${backendUrl}/api/v1/admin/query`;
-
+   
     const fetchData = async () => {
       try {
         
-        const response = await axios.get(apiUrl , {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }});
+        const response = await api.get(`/api/v1/admin/query` );
 
       
         setQueryData(response.data.query);

@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import CataMonial from "../../components/CataMonial/CataMonial";
 import { backendUrl } from "../../url";
+import { useDispatch, useSelector } from "react-redux";
 
 const Catalogue = (props) => {
   const [open, setOpen] = useState(false);
@@ -18,14 +19,35 @@ const Catalogue = (props) => {
   function openSearchHandler() {
     setOpen(!open);
   }
+  const user = useSelector(state=> state.auth)
+  const api = axios.create({
+    baseURL: backendUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  api.interceptors.request.use(
+    (config) => {
+      const token = user?.token;
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+
   const navigate = useNavigate();
 
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/v1/admin/allcourses?search=${searchInput}`
+        const response = await api.get(
+          `/api/v1/admin/allcourses?search=${searchInput}`
         );
         setCourses(response.data.courses);
       

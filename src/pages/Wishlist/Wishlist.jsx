@@ -83,7 +83,7 @@ function WishlistPage(){
       }}) 
 
       if(req.status === 200){
-        console.log("nikal diya")
+        
         dispatch(removeFromWl(course._id))
         toast.success("Course removed from wishlist")
       } 

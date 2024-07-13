@@ -8,15 +8,29 @@ const Courses = () => {
   const [courses, setCourses] = useState([]);
   const user = useSelector(state=> state.auth)
   useEffect(() => {
+    const api = axios.create({
+      baseURL: backendUrl,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    api.interceptors.request.use(
+      (config) => {
+        const token = user?.token;
+        if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/v1/admin/allcourses`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
-            }
-          }
+        const response = await api.get(
+          `/api/v1/admin/allcourses`
         );
         setCourses(response.data.courses);
         console.log("here");
@@ -31,13 +45,8 @@ const Courses = () => {
 
   const fetchTeacherData = async (teacherId) => {
     try {
-      const response = await axios.get(
-        `${backendUrl}/api/v1/teacher/getTeacher/${teacherId}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
-        }
+      const response = await api.get(
+        `/api/v1/teacher/getTeacher/${teacherId}`
       );
       return response.data.teacher;
     } catch (error) {

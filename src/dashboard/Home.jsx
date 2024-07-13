@@ -4,17 +4,40 @@ import
  import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
  import axios from 'axios';
 import { backendUrl } from '../url';
+import { useDispatch, useSelector } from "react-redux";
 
 function Home() {
   const [courses, setCourses] = useState();
   const [categories, setCategories] = useState();
   const [queries, setQueries] = useState();
   const [users, setUsers] = useState();
+  const user = useSelector(state=> state.auth)
+  const api = axios.create({
+    baseURL: backendUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  
+  api.interceptors.request.use(
+    (config) => {
+      const token = user?.token;
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
   useEffect(() => {
+    
     const fetchData = async () => {
         try {
             
-            const coursesResponse = await axios.get(`${backendUrl}/api/v1/admin/custom`);
+            const coursesResponse = await api.get(`/api/v1/admin/custom`);
             setCourses(coursesResponse.data.courseCount);
             setCategories(coursesResponse.data.categoryCount);
             setQueries(coursesResponse.data.contactCount);

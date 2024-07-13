@@ -3,36 +3,54 @@ import axios from 'axios';
 import { backendUrl } from '../url';
 import { useDispatch, useSelector } from "react-redux";
 
+
+
 const AcceptRequest = () => {
   const [requestData, setRequestData] = useState([]);
   const user = useSelector(state=> state.auth)
+  const api = axios.create({
+    baseURL: backendUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  api.interceptors.request.use(
+    (config) => {
+      const token = user?.token;
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/v1/teacher/lsitofteachersrequest`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': user?.token
-          }
-        });
+        console.log(user.token);
+        const response = await api.get(`/api/v1/teacher/lsitofteachersrequest`);
+        console.log(user?.token);
         setRequestData(response.data.teachers);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData();
-  }, []);
+    if (user?.token) {  // Only fetch if token exists
+      fetchData();
+  }
+
+  }, [user?.token]);
 
   const handleAccept = async (id) => {
     try {
    
-      await axios.put(`${backendUrl}/api/v1/teacher/acceptrequest/${id}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user?.token
-        }
-      });
+      await api.put(`/api/v1/teacher/acceptrequest/${id}`);
       
       
       const updatedData = requestData.filter(request => request._id !== id);
@@ -48,12 +66,7 @@ const AcceptRequest = () => {
   const handleIgnore = async (id) => {
     try {
      
-      await axios.delete(`${backendUrl}/api/v1/teacher/ignorerequest/${id}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user?.token
-        }
-      });
+      await api.delete(`/api/v1/teacher/ignorerequest/${id}`);
       
      
       const updatedData = requestData.filter(request => request._id !== id);

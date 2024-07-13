@@ -22,15 +22,29 @@ const ListOfTeachers = () => {
   console.log(backendUrl);
   const user = useSelector(state=> state.auth)
   useEffect(() => {
+    const api = axios.create({
+      baseURL: backendUrl,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    api.interceptors.request.use(
+      (config) => {
+        const token = user?.token;
+        if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/v1/admin/universalSearch?query=${searchQuery}`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': user?.token
-            }
-          }
+        const response = await api.get(
+          `/api/v1/admin/universalSearch?query=${searchQuery}`
         );
         setUsers(response.data.users);
         console.log(users);
